@@ -1,0 +1,18 @@
+<div class="flex flex-col md:flex-row">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-1"
+  >
+    <div class="p-4" *ngFor="let card of appService.cardsList; let i = index; ">
+      <app-card [id]="'card_' + i" (click)="onClickCard(card, i)" (mouseover)="appService.showDeck = false" [cardData]="card"></app-card>
+    </div>
+  </div>
+
+</div>
+
+<igx-dialog
+  #alert
+  [closeOnOutsideSelect]="true"
+  message="O baralho deve conter no máximo 4 cartas com o mesmo nome."
+  title="Limite excedido"
+  (leftButtonSelect)="alert.close()"
+>

@@ -1,0 +1,66 @@
+.content-wrap {
+  display: flex;
+}
+
+.avatar {
+  position: absolute;
+  margin-top: -51px;
+  z-index: 111;
+  width: 106px;
+  height: 70px;
+  background: #3eac3e;
+  border-radius: 40px;
+}
+
+.deck {
+  width: 80%;
+  /* height: 100vh; */
+  min-height: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: auto; /* Adiciona uma barra de rolagem horizontal se necessário */
+  white-space: nowrap; /* Impede que as divs internas quebrem para a próxima linha */
+  background: #efd379;
+  padding: 37px;
+  border-radius: 14px;
+}
+
+.deck-card {
+  display: inline-block;
+  width: 100px; /* Largura de cada div interna */
+  height: 100px; /* Altura de cada div interna (pode ser ajustada conforme necessário) */
+  background-color: lightblue;
+  margin-right: 10px; /* Espaçamento entre as divs internas */
+}
+
+main {
+  padding: 0px 0px 16px 0px;
+  width: 100%;
+  background: linear-gradient(180deg, #66bb66, #4aa74a);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: black;
+}
+
+h5 {
+  padding: 8px 0;
+}
+
+:host {
+  display: block;
+  height: calc(100% - 56px);
+}
+
+::ng-deep .igx-navbar {
+  background-color: rgb(245, 199, 48);
+  color: #333
+}
+
+::ng-deep .igx-nav-drawer__aside--normal {
+  background-image: url("/assets/images/bg3.png");
+}
+
+.font-infos {
+  font-size: 20px;
+  color: #333
+}

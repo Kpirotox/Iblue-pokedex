@@ -1,0 +1,46 @@
+
+<button
+class="button mt-3"
+(click)="checkAmountCards() ? alert.open() : alertAmmountCards.open()"
+>
+{{ appService.typeFlow == "edit" ? "Salvar baralho" : "Criar baralho" }}
+</button>
+
+<igx-dialog
+  #alert
+  [closeOnOutsideSelect]="true"
+  title="Salvar baralho"
+  (leftButtonSelect)="alert.close()"
+>
+  <igx-input-group [formGroup]="form">
+    <label igxLabel for="deckName">Nome do baralho</label>
+    <input igxInput id="deckName" formControlName="deckName" type="text" />
+  </igx-input-group>
+  <div igxDialogActions>
+    <button
+      igxButton
+      *ngIf="appService.typeFlow == 'edit'"
+      (click)="[onSave(), alert.close()]"
+      [disabled]="form.invalid"
+    >
+      Salvar
+    </button>
+    <button
+      igxButton
+      *ngIf="appService.typeFlow == 'add'"
+      (click)="[onCreate(), alert.close()]"
+      [disabled]="form.invalid"
+    >
+      Criar
+    </button>
+  </div>
+</igx-dialog>
+
+<igx-dialog
+  #alertAmmountCards
+  title="Ops!"
+  message="O baralho deve conter entre 24 e 60 cartas"
+  leftButtonLabel="OK"
+  (leftButtonSelect)="alertAmmountCards.close()"
+>
+</igx-dialog>

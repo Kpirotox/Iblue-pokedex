@@ -1,0 +1,53 @@
+.card-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.card:not(:first-child) {
+  margin-top: -240px;
+}
+
+.card {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.deckTitle {
+  background-color: rgb(247, 210, 98);
+  border: 1px solid white;
+  border-radius: 6px;
+  color: rgb(133 104 16);
+  height: 40px;
+  padding: 5px 5px;
+  width: 100%;
+}
+
+.item-card {
+  width: 200px;
+}
+
+.bgw {
+  background-color: white;
+}
+
+.bts {
+  margin-top: 5px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 46% 49%;
+}
+

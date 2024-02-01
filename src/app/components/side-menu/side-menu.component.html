@@ -1,0 +1,52 @@
+<div style="height: 57px">
+  <div style="position: fixed" class="w-full">
+    <igx-navbar [title]="'IBlue Pokedex'">
+      <label class="font-infos">Pokemon: {{ getSuperType(appService.selectedCards, supertypesEnum.POKEMON) }}</label>
+      <label class="font-infos">Treinador: {{ getSuperType(appService.selectedCards, supertypesEnum.TRAINER) }}</label>
+      <label class="font-infos mr-3">Cores: {{ getColors(appService.selectedCards) }}</label>
+      <button
+        igxButton="icon"
+        *ngFor="let item of navItems"
+        (click)="navigate(item)"
+      >
+        <igx-icon>{{ item.name }}</igx-icon>
+      </button>
+    </igx-navbar>
+  </div>
+</div>
+
+<div class="w-full flex justify-center" style="position: fixed">
+  <button
+    (click)="appService.showDeck = !appService.showDeck"
+    igxButton="fab"
+    class="avatar"
+    id="avatar_cards"
+  >
+  <span>
+  </span>
+  <img style="margin-right: 10px;" src="../../../assets/images/pika.png" alt="">
+  </button>
+
+  <div class="deck" *ngIf="appService.showDeck">
+    <div>
+      <div style="display: inline-flex;" class="p-3" *ngFor="let card of appService.selectedCards; let i = index" >
+        <app-card
+          (click)="onClickCard(card, i)"
+          [isDeck]="true"
+          [cardStyle]="{ height: '200px', width: '142px' }"
+          [id]="'card_' + i"
+          [cardData]="card"
+        ></app-card>
+      </div>
+    </div>
+      <div>
+        <app-deck-info (onClickSave)="appService.showDeck = false"></app-deck-info>
+      </div>
+  </div>
+</div>
+
+<div class="content-wrap" igxLayout>
+  <main igxFlex>
+    <router-outlet></router-outlet>
+  </main>
+</div>
